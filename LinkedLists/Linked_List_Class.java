@@ -88,12 +88,21 @@ public static int findNode(Node<Integer> head,int n) {
 	}
 	return count;
 }
-public static void reverseLL(Node<Integer> head){
+public static Node<Integer> reverseLL(Node<Integer> head){
 	if(head == null) {
-		return;
+		return head;
 	}
-	reverseLL(head.next);
-	System.out.print(head.data + " ");
+	Node<Integer> prev = null;
+	Node<Integer> curr = head;
+	Node<Integer> next = null;
+	while(curr != null) {
+		next = curr.next;
+		curr.next = prev;
+		prev = curr;
+		curr = next;
+	}
+	head = prev;
+	return head;
 }
 public static Node<Integer> appendLastNtoHead(Node<Integer> head,int n) {
 	if(n==0 || head == null){
@@ -119,23 +128,30 @@ public static Node<Integer> midPoint(Node<Integer> head){
 	if(head == null) {
 		return head;
 	}
-	Node<Integer> temp = head;
-	Node<Integer> ans = null;
-	int len = listLength(head);
-	if(len % 2 == 0) {
-		for(int i = 0 ; i< len/2;i++) {
-			temp = temp.next;
-		}
-		ans = temp;
-
-	}else {
-		for (int i = 0; i < (len/2 + 1); i++) {
-			temp = temp.next;
-			
-		}
-		ans = temp;
+	Node<Integer> slow = head;
+	Node<Integer> fast = head;
+	while(fast!= null && fast.next!= null) {
+		slow =  slow.next;
+		fast = fast.next.next;
+		
 	}
-	return ans;
+	return slow;
+
+}
+public boolean isPalindrome(Node<Integer> head) {
+Node<Integer> newList = head;
+newList = reverseLL(newList);
+boolean ans = false;
+while(head != null && newList!=null) {
+	if(head.data != newList.data) {
+		ans = false;
+		break;
+	}
+	head = head.next;
+	newList = newList.next;
+	ans = true;
+}
+return ans;
 }
 
 }

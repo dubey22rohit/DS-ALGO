@@ -15,7 +15,13 @@ public class LinkedListUse {
 //		int findNode = ll.findNode(head, 2);
 //		System.out.println(findNode);
 		//ll.reverseLL(head);
-		ll.print(ll.appendLastNtoHead(head, 3));
+		//ll.print(ll.appendLastNtoHead(head, 3));
+		System.out.println();
+		//ll.print(ll.midPoint(head));
+		System.out.println();
+		System.out.println(ll.isPalindrome(head));
+		//ll.print(ll.reverseLL(ll.midPoint(head)));
+		//System.out.println(ll.isPallindrome(head));
 	}
 
 }
