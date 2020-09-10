@@ -67,7 +67,7 @@ public boolean checkBalanced(String exp) {
 			s.push(c);
 	}
 		if(c == '}' || c == ']' || c == ')') {
-			if(!s.empty() && isMatching((char)s.peek(), c)) {
+			if(!s.empty() && isMatching((char)s.peek(), c)) {	
 				s.pop();
 			}else {
 				return false;
