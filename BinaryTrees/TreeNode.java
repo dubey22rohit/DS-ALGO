@@ -2,10 +2,10 @@ package BinaryTrees;
 
 public class TreeNode {
 	int data;
-	TreeNode right,left;
+	TreeNode left,right;
 	public TreeNode(int data) {
 		this.data = data;
-		right = null;
 		left = null;
+		right = null;
 	}
 }
